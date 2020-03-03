@@ -15,7 +15,14 @@ class TesteController extends Controller
         // $user->password = $request->password;   
         // $user->save();
         //$ss = Hash::make(123456);
-       
+        header("Access-Control-Allow-Origin: *");
+
+        // ALLOW OPTIONS METHOD
+        $headers = [
+            'Access-Control-Allow-Methods'=> 'POST, GET, OPTIONS, PUT, DELETE',
+            'Access-Control-Allow-Headers'=> 'Content-Type, X-Auth-Token, Origin'
+        ];
+        
         $user = User::create([
             'name'=>$request->input('name'),
             'email'=>$request->input('email'),
